@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+                name="info"
+                type="com.lesnyg.mychatapp.MsgInfo"/>
+    </data>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:layout_gravity="end"
+                android:layout_margin="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="내가보낸 메세지 내가보낸메세지 내가보낸 메세지 내가보낸메세지 내가보낸 메세지 내가보낸메세지내가보낸 메세지 내가보낸메세지내가보낸 메세지 내가보낸메세지"
+                android:text="@{info.message}"
+                android:background="@drawable/theme_chatroom_bubble_me_01_image"/>
+    </LinearLayout>
+</layout>
