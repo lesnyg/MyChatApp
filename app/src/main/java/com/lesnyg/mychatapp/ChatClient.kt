@@ -15,13 +15,15 @@ class ChatClient(
     private var mSocket: Socket? = null
     private var mName: String? = null
 
+    lateinit var writer: ClientWrite
+
     fun connect() {
         try {
             mSocket = Socket(SERVER_HOST, SERVER_PORT)
             val clientRead = ClientRead()
             clientRead.start()
 
-            val writer = ClientWrite(nickName)
+            writer = ClientWrite(nickName)
         } catch (e: UnknownHostException) {
             e.printStackTrace()
         } catch (e: IOException) {
@@ -64,7 +66,7 @@ class ChatClient(
         }
     }
 
-    internal inner class ClientWrite(nickName: String) {
+    inner class ClientWrite(nickName: String) {
 
         private var mOutputStream: DataOutputStream? = null
 
@@ -82,8 +84,9 @@ class ChatClient(
 
         }
 
-        fun weite(msgInfo: MsgInfo) {
+        fun weite(message: String) {
             try {
+                val msgInfo = MsgInfo(nickName,message,System.currentTimeMillis())
                 mOutputStream!!.writeUTF(Gson().toJson(msgInfo))
                 mOutputStream!!.flush()
             } catch (e: IOException) {
@@ -93,8 +96,7 @@ class ChatClient(
     }
 
     companion object {
-        private val SERVER_HOST = "211.183.31.3"
+        private val SERVER_HOST = "211.184.31.3"
         private val SERVER_PORT = 5000
-        val NICKNAME = "선영"
     }
 }

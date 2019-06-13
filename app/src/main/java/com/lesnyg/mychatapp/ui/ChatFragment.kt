@@ -49,6 +49,15 @@ class ChatFragment : Fragment(), CoroutineScope by CoroutineScope(Dispatchers.IO
         launch {
             client.connect()
         }
+
+        send_btn.setOnClickListener {
+            launch {
+                client.writer.weite(chat_edit.text.toString())
+                launch(Dispatchers.Main){
+                    chat_edit.setText("")
+                }
+            }
+        }
     }
 
     override fun onDestroy() {
@@ -106,7 +115,5 @@ class ChatAdapter(val nickName: String) :
         }else if(holder is ChatYouHolder){
             holder.binding.info = items[position]
         }
-
     }
-
 }

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -21,15 +22,17 @@
             android:layout_height="wrap_content">
 
         <EditText
+                android:id="@+id/chat_edit"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:gravity="end"
-        />
+                />
 
         <Button
+                android:id="@+id/send_btn"
                 android:text="전송"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
     </LinearLayout>
+
 </LinearLayout>
