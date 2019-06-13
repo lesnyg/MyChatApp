@@ -50,4 +50,6 @@ dependencies {
 
     kapt "com.android.databinding:compiler:3.1.4"
 
+    implementation 'com.google.code.gson:gson:2.8.5'
+
 }

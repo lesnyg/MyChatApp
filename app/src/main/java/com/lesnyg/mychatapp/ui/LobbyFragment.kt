@@ -23,12 +23,15 @@ class LobbyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         enter_btn.setOnClickListener {
-            val action = LobbyFragmentDirections
-                .actionLobbyFragmentToChatFragment(chatId.text.toString())
+            val nickName = chatId.text.toString()
+           if (nickName.isNotEmpty())  {
+               val action = LobbyFragmentDirections
+                   .actionLobbyFragmentToChatFragment(chatId.text.toString())
 
-            findNavController().navigate(action)
+               findNavController().navigate(action)
+
+           }
         }
     }
-
 
 }
